@@ -1,0 +1,4 @@
+rootProject.name = 'flyway-example'
+include 'app'
+include 'app-dbmigrator'
+

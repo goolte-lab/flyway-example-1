@@ -8,7 +8,7 @@ import ratpack.server.BaseDir;
 import ratpack.server.RatpackServer;
 
 /**
- *
+ * Starts the Flyway Example Application.
  */
 public class Main {
 

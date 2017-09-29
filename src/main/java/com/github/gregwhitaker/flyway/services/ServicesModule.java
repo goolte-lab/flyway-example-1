@@ -6,6 +6,6 @@ public class ServicesModule extends AbstractModule {
 
     @Override
     protected void configure() {
-
+        bind(EmployeeService.class);
     }
 }

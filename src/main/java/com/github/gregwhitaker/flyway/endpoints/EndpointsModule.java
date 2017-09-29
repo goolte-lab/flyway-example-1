@@ -6,6 +6,6 @@ public class EndpointsModule extends AbstractModule {
 
     @Override
     protected void configure() {
-
+        bind(EmployeeEndpoint.class);
     }
 }

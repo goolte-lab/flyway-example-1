@@ -20,7 +20,7 @@ public class Main {
                 .registry(Guice.registry(b -> b
                         .module(HikariModule.class, hikariConfig -> {
                             hikariConfig.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
-                            hikariConfig.addDataSourceProperty("URL", "jdbc:h2:mem:dev");
+                            hikariConfig.addDataSourceProperty("URL", "jdbc:h2:file:./build/database");
                         })
                         .module(EndpointsModule.class)
                         .module(ServicesModule.class))

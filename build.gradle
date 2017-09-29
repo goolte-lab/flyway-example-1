@@ -1,5 +1,6 @@
 plugins {
     id 'com.gradle.build-scan' version '1.9'
+    id 'java'
 }
 
 buildScan {
@@ -8,9 +9,9 @@ buildScan {
     publishAlways()
 }
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-    }
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
 }

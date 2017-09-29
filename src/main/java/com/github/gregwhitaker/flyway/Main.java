@@ -4,6 +4,7 @@ import com.github.gregwhitaker.flyway.endpoints.EmployeeEndpoint;
 import com.github.gregwhitaker.flyway.endpoints.EndpointsModule;
 import com.github.gregwhitaker.flyway.services.ServicesModule;
 import ratpack.guice.Guice;
+import ratpack.hikari.HikariModule;
 import ratpack.server.BaseDir;
 import ratpack.server.RatpackServer;
 
@@ -17,6 +18,10 @@ public class Main {
                 .serverConfig(c -> c
                         .baseDir(BaseDir.find()).build())
                 .registry(Guice.registry(b -> b
+                        .module(HikariModule.class, hikariConfig -> {
+                            hikariConfig.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
+                            hikariConfig.addDataSourceProperty("URL", "jdbc:h2:mem:dev");
+                        })
                         .module(EndpointsModule.class)
                         .module(ServicesModule.class))
                 )

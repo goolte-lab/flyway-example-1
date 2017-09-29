@@ -1,3 +1,5 @@
+import org.flywaydb.gradle.task.FlywayMigrateTask
+
 buildscript {
     dependencies {
         classpath 'com.h2database:h2:1.4.191'
@@ -39,3 +41,12 @@ flyway {
     url = 'jdbc:h2:file:./build/database'
     user = 'sa'
 }
+
+// You would not need this under normal circumstances. This sets the database to version 1 when you build
+// the application so that you can migrate it to version 2 with the flyway plugin.
+task initDatabase(type: FlywayMigrateTask) {
+    url = 'jdbc:h2:file:./build/database'
+    user = 'sa'
+    target = '1'
+}
+build.dependsOn(initDatabase)

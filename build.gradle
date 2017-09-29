@@ -1,6 +1,6 @@
 plugins {
     id 'com.gradle.build-scan' version '1.9'
-    id 'java'
+    id 'io.ratpack.ratpack-java' version '1.5.0'
 }
 
 buildScan {
@@ -9,9 +9,19 @@ buildScan {
     publishAlways()
 }
 
+group = 'com.github.gregwhitaker'
+version = '1.0.0'
 sourceCompatibility = 1.8
 
 repositories {
     jcenter()
     mavenCentral()
 }
+
+dependencies {
+    compile ratpack.dependency("guice")
+
+    runtime 'org.slf4j:slf4j-simple:1.7.22'
+}
+
+mainClassName = 'com.github.gregwhitaker.flyway.Main'

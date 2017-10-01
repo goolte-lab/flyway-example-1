@@ -1,13 +1,14 @@
 package com.github.gregwhitaker.flyway.model;
 
 /**
- * Employee record
+ * Employee record with phone number.
  */
-public class Employee {
+public class EmployeeWithPhone {
 
     private long id;
     private String firstName;
     private String lastName;
+    private Long phoneNumber;
 
     public long getId() {
         return id;
@@ -31,5 +32,13 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(Long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

@@ -1,6 +1,7 @@
 package com.github.gregwhitaker.flyway.services;
 
 import com.github.gregwhitaker.flyway.model.Employee;
+import com.github.gregwhitaker.flyway.model.EmployeeWithPhone;
 import ratpack.exec.Blocking;
 import ratpack.exec.Promise;
 
@@ -26,7 +27,7 @@ public class EmployeeService {
      *
      * @return list of employees
      */
-    public Promise<List<Employee>> getEmployees1() {
+    public Promise<List<Employee>> getEmployees() {
         return Blocking.get(() -> {
             try (Connection connection = dataSource.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM EMPLOYEE;");
@@ -54,16 +55,16 @@ public class EmployeeService {
      *
      * @return list of employees
      */
-    public Promise<List<Employee>> getEmployees2() {
+    public Promise<List<EmployeeWithPhone>> getEmployeesWithPhone() {
         return Blocking.get(() -> {
             try (Connection connection = dataSource.getConnection()) {
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM EMPLOYEE;");
                 ResultSet resultSet =  statement.executeQuery();
 
-                List<Employee> employees = new ArrayList<>();
+                List<EmployeeWithPhone> employees = new ArrayList<>();
 
                 while (resultSet.next()) {
-                    Employee employee = new Employee();
+                    EmployeeWithPhone employee = new EmployeeWithPhone();
                     employee.setId(resultSet.getLong("ID"));
                     employee.setFirstName(resultSet.getString("FIRST_NAME"));
                     employee.setLastName(resultSet.getString("LAST_NAME"));

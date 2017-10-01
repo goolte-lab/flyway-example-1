@@ -19,13 +19,13 @@ public class EmployeeEndpoint implements Action<Chain> {
     @Override
     public void execute(Chain chain) throws Exception {
         // Pre-Migration
-        chain.get("employees1", ctx -> {
-            service.getEmployees1().then(employees -> ctx.render(json(employees)));
+        chain.get("v1/employees", ctx -> {
+            service.getEmployees().then(employees -> ctx.render(json(employees)));
         });
 
         // Post-Migration
-        chain.get("employees2", ctx -> {
-            service.getEmployees2().then(employees -> ctx.render(json(employees)));
+        chain.get("v2/employees", ctx -> {
+            service.getEmployeesWithPhone().then(employees -> ctx.render(json(employees)));
         });
     }
 }

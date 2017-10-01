@@ -41,3 +41,4 @@ flyway {
     password = 'sa'
 }
 build.dependsOn(flywayMigrate)
+run.dependsOn(build)

@@ -18,9 +18,12 @@ public class Main {
                 .serverConfig(c -> c
                         .baseDir(BaseDir.find()).build())
                 .registry(Guice.registry(b -> b
-                        .module(HikariModule.class, hikariConfig -> {
-                            hikariConfig.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
-                            hikariConfig.addDataSourceProperty("URL", "jdbc:h2:file:./build/database");
+                        .module(HikariModule.class, config -> {
+                            config.setDataSourceClassName("org.h2.jdbcx.JdbcDataSource");
+                            config.setConnectionTestQuery("VALUES 1");
+                            config.addDataSourceProperty("URL", "jdbc:h2:./build/database");
+                            config.addDataSourceProperty("user", "sa");
+                            config.addDataSourceProperty("password", "sa");
                         })
                         .module(EndpointsModule.class)
                         .module(ServicesModule.class))

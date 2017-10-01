@@ -8,7 +8,7 @@ public class Employee {
     private long id;
     private String firstName;
     private String lastName;
-    private long phoneNumber;
+    private Long phoneNumber;
 
     public long getId() {
         return id;
@@ -34,11 +34,11 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    public long getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 }

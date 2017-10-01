@@ -36,7 +36,8 @@ dependencies {
 mainClassName = 'com.github.gregwhitaker.flyway.Main'
 
 flyway {
-    url = 'jdbc:h2:file:./build/database'
+    url = 'jdbc:h2:./build/database'
     user = 'sa'
+    password = 'sa'
 }
 build.dependsOn(flywayMigrate)

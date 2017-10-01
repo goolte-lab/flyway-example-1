@@ -1,4 +1,6 @@
 # flyway-example
+[![Build Status](https://travis-ci.org/gregwhitaker/flyway-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/flyway-example)
+
 An example of using [Flyway](https://flywaydb.org/) to manage the versioning and migration of your relational database
 schemas.
 

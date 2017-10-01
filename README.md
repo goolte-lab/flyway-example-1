@@ -38,6 +38,18 @@ schemas.
     You will see a database error indicating that the `PHONE_NUMBER` column does not exist:
     
         org.h2.jdbc.JdbcSQLException: Column "PHONE_NUMBER" not found [42122-186]
+
+4. Stop the application.
+
+5. Copy the [V2__Add_Phone_Numbers.sql](sql/V2__Add_Phone_Numbers.sql) from the sql directory to the [src/main/resources/db/migration](src/main/resources/db/migration) directory.
+
+6. Run the database migration using the following Gradle command:
+
+        $ ./gradlew flywayMigrate
+
+7. Start the application by running the following Gradle command:
+   
+        $ ./gradlew run
     
 ## Bugs and Feedback
 For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/flyway-example/issues).

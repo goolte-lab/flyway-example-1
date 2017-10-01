@@ -6,7 +6,7 @@ schemas.
 
 The example consists of a REST API that returns employee information from a database. The first version of the service
 returns the employee's: id, first name, and last name. The database migration script adds a phone number column to the 
-employees records and version two of the service returns it along with the existing employee information.
+employee records, which is returned by version two of the service along with the existing employee information.
 
 ## Running the Example
 1. Start the application by running the following Gradle command:

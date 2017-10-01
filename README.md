@@ -50,7 +50,36 @@ schemas.
 7. Start the application by running the following Gradle command:
    
         $ ./gradlew run
+
+8. Call the `v2/employees` endpoint using the following curl command:
+
+        $ curl http://localhost:5050/v2/employees
+        
+    You will see that you no longer receive a database error and instead see that employee records with phone numbers are returned:
     
+        [
+          {
+            "id": 1,
+            "firstName": "Bob",
+            "lastName": "Smith",
+            "phoneNumber": 1234567
+          },
+          {
+            "id": 2,
+            "firstName": "Jane",
+            "lastName": "Doe",
+            "phoneNumber": 2345678
+          },
+          {
+            "id": 3,
+            "firstName": "Sally",
+            "lastName": "Ann",
+            "phoneNumber": 3456789
+          }
+        ]
+
+9. Congratulations! You have successfully migrated your database.
+   
 ## Bugs and Feedback
 For bugs, questions and discussions please use the [Github Issues](https://github.com/gregwhitaker/flyway-example/issues).
 
